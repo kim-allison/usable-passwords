@@ -68,27 +68,35 @@
           <div class="line">  
             <h2 class="text-size-40 margin-bottom-30">Standard Deviation and Z-Score</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <p>
-              The standard deviation model is the one we started with, and it is the most straightforward and ‘obvious’ approach out of all three models. Standard deviations measure how ‘far’ values in the data set are from the mean. In our project, we’ll use them to measure how spread out the user's inputs are or how far a user’s input is from their previously ‘saved’ keystroke pattern. 
-              <br><br>
-              <b>INSERT HERE EQUATION!</b>
-              <br><br>
-              For the z-score model, out of different approaches using z-scores, we decided to follow Stouffer’s approach. First, a z-score is the number of standard deviations, some values in the data set are away from the mean. A standard z-score approach would use individual z-scores to analyze variability within a dataset. Stouffer’s approach is a bit different from standard z-score calculations/ normal distributions since we define Z using a standard normal cumulative distribution function. In other words, Stouffer’s z-score is the average of the sum of all z-scores.
-            </p> 
+              <div>
+                <div class="margin">
+                  <div class="s-12 m-6 l-6">
+                    <blockquote class="margin-top-bottom-20">
+                      <img class = "center" src="img/stouffer.png" style="width:179px;height:120px;" alt="">
+                      <center><br>Figure 1: Stouffer's z-score</center>
+                    </blockquote>
+                  </div>
+                  <div class="s-12 m-6 l-6">
+                    <p>
+                      The standard deviation model is the most straightforward approach out of all three models. Standard deviations measure how ‘far’ values in the data set are from the mean. In our project, we used them to measure how far a user’s input is from their previously ‘saved’ keystroke pattern. 
+                      <br><br>
+                      For the z-score model, out of different approaches using z-scores, we decided to follow Stouffer’s approach. First, a z-score is the number of standard deviations, some values in the data set are away from the mean. A standard z-score approach would use individual z-scores to analyze variability within a dataset. Stouffer’s approach is a bit different from standard z-score calculations since we define Z using a standard normal cumulative distribution function. In other words, Stouffer’s z-score is the averaged sum of all z-scores.
+                    </p>
+                  </div>
+                </div>
+              </div> 
             <br><br>
 
             <h2 class="text-size-40 margin-bottom-30">Bounds</h2>
             <hr class="break-small background-primary margin-bottom-30">
             <p>
-              Another important concept we should define before discussing the actual implementations is ‘bounds’. 
+              Another important concept we should define before discussing the actual implementations is ‘bounds’. After we collected values that measure variability of user’s keystroke patterns, we needed a way to test whether these approximations of typing patterns are suitable in assessing new input keystrokes. When are our measurements most successful in accepting true users while rejecting false users? We used ‘bounds’ to define possible moments in which this could happen.
               <br><br>
-              After we collect values that measure variability of user’s keystroke patterns, we need a way to test whether these approximations of typing patterns are suitable in assessing new input keystrokes. When are our measurements most successful in accepting true users while rejecting false users? We use ‘bounds’ to define possible moments in which this could happen.
+              We used the name ‘bounds’ in both the standard deviation model and the z-score model. A ‘bound’ points to a number that marks the end of a range we will be looking at to see if our loss lies within that certain range. In a sense, it represents test values for variability. 
               <br><br>
-              We use the name ‘bounds’ in both the standard deviation model and the z-score model. A ‘bound’ points to a number that marks the end of a range we will be looking at to see if our loss lies within that certain range. In a sense, it represents test values for variability. 
+              In the stdev model, the bounds represent the ‘count’ of standard deviations. Using bounds, we attempted to figure out whether a sample data is within the range defined by 'mean +/- stdev*bound'. In the z-score model, the bounds represent the averaged sum of z-scores. With the z-score model, we checked whether the averaged total sum of z-scores is less than a certain number (bound).
               <br><br>
-              In the stdev model, the bounds represent the ‘count’ of stdevs. Using bounds, we attempt to figure out whether a sample data is within the range mean +- stdev*bound. In the z-score model, the bounds represent the averaged sum of z-scores. With the z-score model, we check whether the averaged total sum of z-scores of entries in the sample data is within a (bound) number of stdev.
-              <br><br>
-              We expect adding up z-scores to improve our probability models. The ranges we would test the user's input data in, would become more flexible since individual variability measurements would even out. We expect the z-score model to be a more holistic approach to mapping variability. 
+              We expected adding up z-scores to improve our statistical models. The ranges which we would test the user's input data in would become more flexible since individual variability measurements would even out. The z-score model, especially using Stouffer's calculations, is a more holistic approach to mapping variability. 
             </p> 
             <!-- <blockquote class="margin-top-bottom-20">
               <h3 class="text-size-20 text-line-height-1 margin-bottom-15">Mirum est notare quam littera gothica</h3>
@@ -99,30 +107,61 @@
 
              <h2 class="text-size-40 margin-bottom-30">Implementations</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <div class="line margin-top-30">
+            <p>We first used the online data to get a rough ‘outline’ of the models. The online data step consists of a training step and a testing step. After testing, we got the optimal bound, which marks the moment in which the model is the most successful in accepting true users while rejecting false users.
+              Next, we used the survey data, which we have collected with our self-constructed survey. We proceeded with going through the same training and testing steps. There were slight changes to how we train and test our data, though the general idea of what’s going on in these steps remained the same.
+              <br><br>
+              Again, the approaches used for the two models are much similar, but there is a distinct difference in ‘what’ we calculated that ultimately makes the approximations we make using the z-score model better in representing keystroke patterns.
+              <br><br>
+              1. The first step of the two model finds the optimal bound using only the online data set. We trained the model on 10 random samples of a certain user, and tested it on the rest of the data. The training step involves taking the standard deviation and mean of the 10 random samples. 
+              <br><br>
+              2. With the results we got from the training step, we performed different comparative calculations in the two models.
+              There’s not much ‘extra’ calculations we needed to do for the standard deviation model since the values we would be comparing to didn't need to be preprocessed for our final comparison step.
+              <br><br>
+              In the z-score model, however, with the standard deviation and mean, we were able to figure out the z-scores corresponding to each keystroke of a new input (dwell time and flight time of a key press/ key presses). By summing up all z-scores, we got our total input loss (a.k.a. the distance from the average of the 10 random samples to the new input). 
+
+            </p>
+            <div>
               <div class="margin">
-                <div class="s-12 m-6 l-6">
-                  <img src="img/img-01.jpg" alt="">
-                  <p class="margin-top-30">
-                  Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; 
-                  est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. 
-                  Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc 
-                  putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc 
-                  nobis videntur parum clari, fiant sollemnes in futurum.
+                <div >
+                  <blockquote class="margin-top-bottom-20">
+                    <img class = "center" src="img/optbound.png" style="width:948px;height:332px;" alt="">
+                    <center><br>Figure 2: ROC curves with optimal bounds marked</center>
+                  </blockquote>
+                </div>
+                <div>
+                  <p>
+                    3. We then compared these losses against our 11 bounds (0 - 10) to construct ROC curves (Figure 2). If the loss is below a bound, we accepted (TA or FA). Otherwise, we rejected (TR or FR). The most important information we got from this first step is the optimal bound, which is when TAR (true acceptance rate) + FAR (false acceptance rate) = 1, EER. In our tests, the optimal bound was 6 for the standard deviation model and 8 for the z-score model.
+                    <br><br>
+                    4. After we figured out the optimal bounds, we moved on to stage two: we applied the same training and testing methods to the survey data. 
+                    Some minor details we still needed to change were the number of iterations we make in the testing step. First of all, we didn’t need to compare our losses to 11 bounds! Just one, our optimal bound, was okay. Additionally, we no longer were required to look through ALL keystroke data of a certain user. We conducted 2 testing rounds. In one, we used the first 10 inputs at training and in the other we used the second 10 inputs to train. In both, we used the last 10 inputs in testing.
                   </p>
                 </div>
-                <div class="s-12 m-6 l-6">
-                  <img src="img/img-02.jpg" alt="">
-                  <p class="margin-top-30">
-                  Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; 
-                  est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. 
-                  Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc 
-                  putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc 
-                  nobis videntur parum clari, fiant sollemnes in futurum.
-                  </p>
-                </div>
-              </div>
-            </div>      
+              </div>   
+              <br><br>
+
+             <h2 class="text-size-40 margin-bottom-30">Results</h2>
+            <hr class="break-small background-primary margin-bottom-30">
+            
+              <div>
+                <div class="margin">
+                  <div >
+                    <blockquote class="margin-top-bottom-20">
+                      <img class = "center" src="img/stats_results.png" style="width:781px;height:200px;" alt="">
+                      <center><br>Figure 3: Results from two different training rounds</center>
+                    </blockquote>
+                  </div>
+                  <div>
+                    <p>
+                      Recall that the numbers in Figure 3 are percentages, and that higher TAR and lower FAR are desired.
+                      The bests results from the standard deviation model were from the second set of survey tests (2nd 10 tests, or tests 11-20).
+                      The best results from the z-score model were also from the second set of survey tests. 
+                      <br><br>
+                      Though the first testing round gave us a higher true acceptance rate, it also resulted in a higher false acceptance rate for the z-score model. This is probably because the test takers used the first set of tests to get familiarized with the never before seen password ‘.tie5Roanl’, thereby resulting in higher typing variability. The same reason applies to the results we observed from the standard deviation model.
+                      <br><br>
+                      We also noticed that our results match our speculation about the z-score model and how Stouffer’s approach would improve model results. Since we accepted users based on all z-scores, and this balanced out some of the approximated ranges for our identifier, we could say that the standard deviation model is a bit stricter in terms of accepting ‘true’ users compared to the z-score model. As a result, the z-score model shows a better TAR but sometimes shows a larger FAR, a maximum of 0.9 even.
+                    </p>
+                  </div>
+                </div>   
           </div>
         </div> 
       </article>
