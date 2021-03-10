@@ -208,6 +208,18 @@ a.tooltip-content.tooltip-bottom,.tooltip-content.tooltip-bottom {
 .grid .button {
   width: 100%;
 }
+/* Allison's repo button*/
+input[type=submit] {
+  padding: 7px 15px; 
+  background: #e0e0e0;
+  color: black;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  border-radius: 5px; 
+  font-size: 1.2rem;
+  font-family: inherit;
+}
 /* Accordion */
 .accordion-title { 
   font-size: 1.1rem;
