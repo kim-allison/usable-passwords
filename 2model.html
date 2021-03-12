@@ -60,49 +60,27 @@
         <header class="section background-dark">
           <div class="line">        
             <h1 class="text-white margin-top-bottom-40 text-size-60 text-line-height-1">Models</h1>
-            <p class="margin-bottom-0 text-size-16">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.<br>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+            <p class="margin-bottom-0 text-size-16">A model is an abstract representation of a user's unique keystroke pattern.</p>
           </div>  
         </header>
         <div class="section background-white"> 
           <div class="line">  
-            <h2 class="text-size-40 margin-bottom-30">Investigationes demonstraverunt lectores</h2>
+            <h2 class="text-size-40 margin-bottom-30">Purpose of the Models</h2>
             <hr class="break-small background-primary margin-bottom-30">
             <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros 
-            et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            At the start of the project, we didn’t have any of the data that we collected from our survey. We relied on an online data set from Carnegie Mellon that had keystroke data from 51 typists to fine tune and test models.
+            We created the three models with the purpose of abstractly representing a user’s keystroke dynamics given 10 initial inputs.This representation would then be used for comparison against new login attempts to determine if a new input was indeed the true user based on their keystrokes.
+            Of the three models tested, the first two are statistical models while the third is a neural network.
             </p> 
-            <blockquote class="margin-top-bottom-20">
-              <h3 class="text-size-20 text-line-height-1 margin-bottom-15">Mirum est notare quam littera gothica</h3>
-              Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.
+            <h2 class="text-size-40 margin-bottom-30">Key Metrics</h2>
+            <hr class="break-small background-primary margin-bottom-30">
+            <blockquote>
+            <img class="center margin-left-right-auto display-block"src="img/ROC_curve2.jpg" alt="">
+            <center><br>Figure 1: Receiver Operating Characteristic Curve.</center>
             </blockquote>
-            
-            <div class="line margin-top-30">
-              <div class="margin">
-                <div class="s-12 m-6 l-6">
-                  <img src="img/img-01.jpg" alt="">
-                  <p class="margin-top-30">
-                  Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; 
-                  est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. 
-                  Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc 
-                  putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc 
-                  nobis videntur parum clari, fiant sollemnes in futurum.
-                  </p>
-                </div>
-                <div class="s-12 m-6 l-6">
-                  <img src="img/img-02.jpg" alt="">
-                  <p class="margin-top-30">
-                  Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; 
-                  est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. 
-                  Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc 
-                  putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc 
-                  nobis videntur parum clari, fiant sollemnes in futurum.
-                  </p>
-                </div>
-              </div>
-            </div>      
+            <p>
+            Ultimately, we will assess the models based on their True and False Accept Rates. The True Accept Rate is the rate a model correctly believes the true user to be the true user and the False Accept Rate is the rate a model incorrectly believes a false user to be the true user. Ideally, we want a 100% true accept rate and a 0% false accept rate. The optimal tradeoff between the True Accept Rate and False Accept Rate is along the equal error rate, when the True Accept Rate + False Accept Rate is 1 because this is where the model’s performance is equal between true and false user inputs. When we plot the relationship between the True Accept Rate and False Accept Rate on the ROC curve to the right, we can visualize the best accept rates based on where they intersect the black Equal Error Rate line.
+            </p>
           </div>
         </div> 
       </article>
