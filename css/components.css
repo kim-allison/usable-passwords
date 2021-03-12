@@ -957,5 +957,9 @@ body.modal-active {
     left: auto;
     right: 121%;
     text-align: right;
-  } 
+  }
+  form { 
+    padding: 5px;
+    display: inline; 
+  }
 }

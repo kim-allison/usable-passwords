@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -46,6 +45,7 @@
             </li>
             <li><a href="4results.html">Results</a></li>
             <li><a href="5future.html">Future Work</a></li>
+            <li><a href="5future.html">References</a></li>
             <li><a href="6references.html">References</a></li>
             <!-- <li><a href="gallery.html">Gallery</a></li> -->
             <!-- <li><a href="contact.html">Contact</a></li> -->
@@ -54,47 +54,52 @@
       </nav>
     </header>
     
-    <!-- MAIN -->
-    <main role="main">
-      <!-- Content -->
-      <article>
-        <header class="section background-dark">
-          <div class="line">        
-            <h1 class="text-white margin-top-bottom-40 text-size-60 text-line-height-1">Keystroke Dynamics</h1>
-            <p class="margin-bottom-0 text-size-16">We used keystroke dynamics as a form of biometric data to identify our users.</p>
-          </div>  
-        </header>
-        <div class="section background-white"> 
-          <div class="line">  
-            <h2 class="text-size-40 margin-bottom-30">What are Keystroke Dynamics?</h2>
-            <hr class="break-small background-primary margin-bottom-30">
-            <p>
-            Keystroke dynamics measure the patterns of typing. When you type, you spend fractions of a second between each downstroke and upstroke--when you press and release each key. The time between your downstroke and upstroke is “dwell time;” the time between upstroke and downstroke is “flight time.” By recording your flight and dwell times for each key on your keyboard, we can find your keystroke patterns, which identify you.
-            
-            </p> 
-            <blockquote>
-            <img class="center margin-left-right-auto display-block"src="img/Key_stroke_visual.jpg" alt="">
-            <center><br>Figure 1: Graphic of Keystrokes.</center>
-            </blockquote>
-            <h2 class="text-size-40 margin-bottom-30">Authentication</h2>
-            <hr class="break-small background-primary margin-bottom-30">
-            <p>
-            Through our research, we have found that there is a need to combine authentication methods for increased security. This two-factor authentication can provide security against an attack where the password is already known. The three categories of authentication are as follows: what you know (a password), what you own (a token), and what you are (biometric data). We want to focus on this third option, because biometric data is unique to every person, with examples including fingerprints, iris, handwriting and typing style. Biometric data also has the benefit of not placing a heavy burden, such as remembering many unique passwords or carrying a token, on the user. In summary, we will use keystroke dynamics to add a second factor of security to a password.
-            </p> 
+   <!-- MAIN -->
+   <main role="main">
+    <!-- Content -->
+    <article>
+      <header class="section background-dark">
+        <div class="line">        
+          <h1 class="text-white margin-top-bottom-40 text-size-60 text-line-height-1">References</h1>
+          <!-- <p class="margin-bottom-0 text-size-16">This was created by a group of senior Computer Science majors at Carleton College.<br> -->
 
+        </div>  
+      </header>
+      <div class="section background-white"> 
+        <div class="line">  
+          <!-- <h2 class="text-size-40 margin-bottom-30"></h2> -->
+          <!-- <hr class="break-small background-primary margin-bottom-30"> -->
+          <section >
+            <h2 class="text-size-50  text-m-size-40 text-center">Principal Sources</h2>
+            <hr class="break-small background-primary break-center">
+            <ol>
+              <li><a href="https://dl.acm.org/doi/10.1145/581271.581272"> Bergadano, F., Gunetti, D., and Picardi, C. 2002. User authentication through keystroke dynamics. ACM Transactions on Information and System Security 5, 4.</li>
+              <li><a href="http://www.itl.waw.pl/publikacje/44-jtit/953-journal-of-telecommunications-and-information-technology-jtit-12012"> Kobojek, P., Saeed, K.: Application of recurrent neural networks for user verification based on keystroke dynamics. J. Telecommun. Inf. Technol. 3, 80 (2016).</a></li>
+              <li><a href="https://www.cs.cmu.edu/~maxion/pubs/KillourhyMaxion09.pdf"> K. S. Killourhy and R. A. Maxion. Comparing Anomaly-Detection Algorithms for Keystroke Dynamics. In IEEE/IFIP International Conference on Dependable Systems Networks, pages
+                125–134, July 2009.</a></li>
+              <li><a href="https://www.rand.org/pubs/reports/R2526.html"> R. Gaines, W. Lisowski, S. Press, N. Shapiro, Authentication by keystroke timing: some preliminary results. Rand Rep. R-2560-NSF, Rand Corporation, 1980.</a></li>
+              <li> Y. Zhong and Y. Deng, "A survey on keystroke dynamics biometrics: approaches advances and evaluations" in Recent Advances in User Authentication Using Keystroke Dynamics Biometrics., Greece:Science Gate, pp. 1-22, 2015.</li>
+            </ol>
+            <h2 class="text-size-50  text-m-size-40 text-center">Our Code</h2>
+            <hr class="break-small background-primary break-center">
+            <div align="center">
+                <form action="https://github.com/kim-allison/keystroke-models">
+                  <input type="submit" value="Model code" />
+              </form>
+              <form action="https://github.com/dazedcodes/ks-comps">
+                <input type="submit" value="Survey code" />
+            </form>
+            <form action="https://github.com/kim-allison/keystroke-models/tree/master/data">
+              <input type="submit" value="Data" />
+          </form>
           </div>
-        </div> 
-      </article>
-    </main>
-    
+        </div>
+      </div> 
+    </article>
+  </main>
+  
    <!-- FOOTER -->
    <footer>
-    <!-- Contact Us
-    <div class="background-primary padding text-center">
-      <p class="h1">Contact Us: 0800 787 787</p>                                                                        
-    </div>
-     -->
-    <!-- Main Footer -->
     <section class="background-dark full-width">
       <!-- Map
       <div class="s-12 m-12 l-6 margin-m-bottom-2x">
