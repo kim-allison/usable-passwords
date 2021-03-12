@@ -62,7 +62,6 @@
             <h1 class="text-white margin-top-bottom-40 text-size-60 text-line-height-1">Results</h1>
           </div>
         </header>
-<<<<<<< HEAD
         <div class="section background-white">
           <div class="line">
             <h2 class="text-size-40 margin-bottom-30">Results</h2>
@@ -80,21 +79,20 @@
             <h2 class="text-size-40 margin-bottom-30">Conclusions</h2>
             <hr class="break-small background-primary margin-bottom-30">
             <p>
-              To address these problems, we aimed to build a model as outlined above. The neural network is made up of a normalization layer, a long short-term memory (LSTM) layer, a hidden dense layer with 100 nodes, and a binary classification layer. As we will discuss later, we are able to swap out the output layer for different users. <a style="text-tag" href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">The LSTM layer</a> is a gated recurrent unit, which will accommodate inputs of any length to the model. This is done by looping the layer’s output back into the LSTM and updating it for each unit of input. The dense layer will contain high level features or embeddings of a user’s keystroke dynamics. These embeddings are low dimensional vector representations of the inputs which, ideally, place similar inputs close together in the embedding space. We should also note that between each layer is a dropout of 0.3 for increased model generalization during training.
+              Based on our results, keystroke recognition is a promising addition to traditional character passwords in some contexts. Though there are clear limitations to keystroke identification, our relatively high true accept rate with preliminary models shows that keystrokes can consistently be used to identify most users.
 
-              <br><br> With this method of model creation established, we must find an optimal threshold for the binary classification layer to get as close to the Equal Error Rate as possible. This is done using leave one out cross validation tests with only the training data. For each user in the online data set, we perform the method described before with ⅔ of users as training and ⅓ as testing. The TARs and FARs at different thresholds are then averaged across users. We achieved the Equal Error rate on just the training data at a threshold of about 0.045 with about 70% TAR and 30% FAR. With the optimal threshold found using only the online data set, we tested the threshold on newly retrained models using the survey data set.
+              <br><br> We explored this using dimension reduction to visualize each user’s separability from others (Figure 1). Here we have a t-SNE plot which has mapped the users’ high dimensional data down to 2 dimensions while preserving the local structure of the data. Each point is a single password attempt, colored based on the user. We can see that many users’ inputs form clusters and should be distinguishable from others’. However, this clear clustering is not universal to all users.
             </p>
->>>>>>> 26e16839d10aa1288a923c7ec9dff16dfcca8e70
             <blockquote class="margin-top-bottom-20">
               <img class="center" src="img/t-SNE-group.png" style="width:800px;height:500px;" alt="">
-              <center><br>Table 1: TAR and FAR when Testing Models</center>
+              <center><br>Figure 1: t-SNE Dimension Reduction of 20 Users from Online Data Set</center>
             </blockquote>
             <p>
-              To address these problems, we aimed to build a model as outlined above. The neural network is made up of a normalization layer, a long short-term memory (LSTM) layer, a hidden dense layer with 100 nodes, and a binary classification layer. As we will discuss later, we are able to swap out the output layer for different users. <a style="text-tag" href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">The LSTM layer</a> is a gated recurrent unit, which will accommodate inputs of any length to the model. This is done by looping the layer’s output back into the LSTM and updating it for each unit of input. The dense layer will contain high level features or embeddings of a user’s keystroke dynamics. These embeddings are low dimensional vector representations of the inputs which, ideally, place similar inputs close together in the embedding space. We should also note that between each layer is a dropout of 0.3 for increased model generalization during training.
+              Pulling out two of the users shows some users having much more consistent keystrokes than others (Figre 2). This would likely result in any model performing much better on the left user and worse on the right.
             </p>
             <blockquote class="margin-top-bottom-20">
               <img class="center" src="img/t-SNE-individuals.png" style="width:1000px;height:300px;" alt="">
-              <center><br>Table 1: TAR and FAR when Testing Models</center>
+              <center><br>Figure 2: t-SNE Dimension Reduction of 2 Individual Users from Online Data Set</center>
             </blockquote>
           </div>
         </div>
