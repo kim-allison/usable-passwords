@@ -79,7 +79,7 @@
                     </blockquote>
                   </div>
                   <div class="s-12 m-6 l-6">
-                    <p>
+                    <p class="margin-bottom-0 text-size-16">
                       The standard deviation model is the most straightforward approach out of all three models. Standard deviations measure how ‘far’ values in the data set are from the mean. In our project, we used them to measure how far a user’s input is from their previously ‘saved’ keystroke pattern. 
                       <br><br>
                       For the z-score model, out of different approaches using z-scores, we decided to follow Stouffer’s approach. First, a z-score is the number of standard deviations, some values in the data set are away from the mean. A standard z-score approach would use individual z-scores to analyze variability within a dataset. Stouffer’s approach is a bit different from standard z-score calculations since we define Z using a standard normal cumulative distribution function. In other words, Stouffer’s z-score is the averaged sum of all z-scores.
@@ -91,7 +91,7 @@
 
             <h2 class="text-size-40 margin-bottom-30">Bounds</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <p>
+            <p class="margin-bottom-0 text-size-16">
               Another important concept we should define before discussing the actual implementations is ‘bounds’. After we collected values that measure variability of user’s keystroke patterns, we needed a way to test whether these approximations of typing patterns are suitable in assessing new input keystrokes. When are our measurements most successful in accepting true users while rejecting false users? We used ‘bounds’ to define possible moments in which this could happen.
               <br><br>
               We used the name ‘bounds’ in both the standard deviation model and the z-score model. A ‘bound’ points to a number that marks the end of a range we will be looking at to see if our loss lies within that certain range. In a sense, it represents test values for variability. 
@@ -109,7 +109,7 @@
 
              <h2 class="text-size-40 margin-bottom-30">Implementations</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <p>We first used the online data to get a rough ‘outline’ of the models. The online data step consists of a training step and a testing step. After testing, we got the optimal bound, which marks the moment in which the model is the most successful in accepting true users while rejecting false users.
+            <p class="margin-bottom-0 text-size-16">We first used the online data to get a rough ‘outline’ of the models. The online data step consists of a training step and a testing step. After testing, we got the optimal bound, which marks the moment in which the model is the most successful in accepting true users while rejecting false users.
               Next, we used the survey data, which we have collected with our self-constructed survey. We proceeded with going through the same training and testing steps. There were slight changes to how we train and test our data, though the general idea of what’s going on in these steps remained the same.
               <br><br>
               Again, the approaches used for the two models are much similar, but there is a distinct difference in ‘what’ we calculated that ultimately makes the approximations we make using the z-score model better in representing keystroke patterns.
@@ -131,7 +131,7 @@
                   </blockquote>
                 </div>
                 <div>
-                  <p>
+                  <p class="margin-bottom-0 text-size-16">
                     3. We then compared these losses against our 11 bounds (0 - 10) to construct ROC curves (Figure 2). If the loss is below a bound, we accepted (TA or FA). Otherwise, we rejected (TR or FR). The most important information we got from this first step is the optimal bound, which is when TAR (true acceptance rate) + FAR (false acceptance rate) = 1, EER. In our tests, the optimal bound was 6 for the standard deviation model and 8 for the z-score model.
                     <br><br>
                     4. After we figured out the optimal bounds, we moved on to stage two: we applied the same training and testing methods to the survey data. 
@@ -153,7 +153,7 @@
                     </blockquote>
                   </div>
                   <div>
-                    <p>
+                    <p class="margin-bottom-0 text-size-16">
                       Recall that the numbers in Figure 3 are percentages, and that higher TAR and lower FAR are desired.
                       The bests results from the standard deviation model were from the second set of survey tests (2nd 10 tests, or tests 11-20).
                       The best results from the z-score model were also from the second set of survey tests. 
@@ -169,8 +169,8 @@
       </article>
     </main>
     
-    <!-- FOOTER -->
-    <footer>
+     <!-- FOOTER -->
+     <footer>
       <!-- Contact Us
       <div class="background-primary padding text-center">
         <p class="h1">Contact Us: 0800 787 787</p>                                                                        
@@ -198,10 +198,10 @@
                     Northfield, MN 55057
                   </p>               
                 </div>
-                <div class="float-left">
+                <!-- <div class="float-left">
                   <i class="icon-sli-envelope text-primary icon3x"></i>
-                </div>
-                <div class="margin-left-70 margin-bottom-30">
+                </div> -->
+                <!-- <div class="margin-left-70 margin-bottom-30">
                   <h3 class="margin-bottom-0">E-mail</h3>
                   <p>diiannic@carleton.edu<br>
                      kima3@carleton.edu<br>
@@ -209,7 +209,7 @@
                      murphym2@carleton.edu<br>
                      reidn@carleton.edu
                   </p>              
-                </div>
+                </div> -->
                 <!-- <div class="float-left">
                   <i class="icon-sli-phone text-primary icon3x"></i>
                 </div> -->
@@ -224,6 +224,8 @@
           </div>
         </div>  
       </section>
+
+      
       <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 38, 51, 0.80);">
       
     <!-- Bottom Footer -->

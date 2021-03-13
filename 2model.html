@@ -67,7 +67,7 @@
           <div class="line">  
             <h2 class="text-size-40 margin-bottom-30">Purpose of the Models</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <p>
+            <p class="margin-bottom-0 text-size-16">
             At the start of the project, we didn’t have any of the data that we collected from our survey. We relied on an online data set from Carnegie Mellon that had keystroke data from 51 typists to fine tune and test models.
             We created the three models with the purpose of abstractly representing a user’s keystroke dynamics given 10 initial inputs.This representation would then be used for comparison against new login attempts to determine if a new input was indeed the true user based on their keystrokes.
             Of the three models tested, the first two are statistical models while the third is a neural network.
@@ -80,7 +80,7 @@
             <center><br>Figure 1: Receiver Operating Characteristic Curve.</center>
             </blockquote>
             <br><br>
-            <p>
+            <p class="margin-bottom-0 text-size-16">
             Ultimately, we will assess the models based on their True and False Accept Rates. The True Accept Rate is the rate a model correctly believes the true user to be the true user and the False Accept Rate is the rate a model incorrectly believes a false user to be the true user. Ideally, we want a 100% true accept rate and a 0% false accept rate. The optimal tradeoff between the True Accept Rate and False Accept Rate is along the equal error rate, when the True Accept Rate + False Accept Rate is 1 because this is where the model’s performance is equal between true and false user inputs. When we plot the relationship between the True Accept Rate and False Accept Rate on the ROC curve to the right, we can visualize the best accept rates based on where they intersect the black Equal Error Rate line.
             </p>
           </div>
@@ -88,8 +88,8 @@
       </article>
     </main>
     
-     <!-- FOOTER -->
-     <footer>
+      <!-- FOOTER -->
+      <footer>
         <!-- Contact Us
         <div class="background-primary padding text-center">
           <p class="h1">Contact Us: 0800 787 787</p>                                                                        
@@ -117,10 +117,10 @@
                       Northfield, MN 55057
                     </p>               
                   </div>
-                  <div class="float-left">
+                  <!-- <div class="float-left">
                     <i class="icon-sli-envelope text-primary icon3x"></i>
-                  </div>
-                  <div class="margin-left-70 margin-bottom-30">
+                  </div> -->
+                  <!-- <div class="margin-left-70 margin-bottom-30">
                     <h3 class="margin-bottom-0">E-mail</h3>
                     <p>diiannic@carleton.edu<br>
                        kima3@carleton.edu<br>
@@ -128,7 +128,7 @@
                        murphym2@carleton.edu<br>
                        reidn@carleton.edu
                     </p>              
-                  </div>
+                  </div> -->
                   <!-- <div class="float-left">
                     <i class="icon-sli-phone text-primary icon3x"></i>
                   </div> -->
@@ -143,6 +143,8 @@
             </div>
           </div>  
         </section>
+  
+        
         <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 38, 51, 0.80);">
         
       <!-- Bottom Footer -->
@@ -160,4 +162,5 @@
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
   </body>
-</html>
+  </html>
+  

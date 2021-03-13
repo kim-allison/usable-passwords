@@ -66,7 +66,7 @@
           <div class="line">
             <h2 class="text-size-40 margin-bottom-30">Key Objectives</h2>
             <hr class="break-small background-primary margin-bottom-30">
-            <p>
+            <p class="margin-bottom-0 text-size-16">
               The key objectives we wanted to fulfill when designing a neural network approach to identifying users were:
 
               <ul>
@@ -88,7 +88,7 @@
               <img class="center" src="img/neural-net.png" style="width:1000px;height:300px;" alt="">
               <center><br>Figure 1: Structure of Binary Classification Neural Network for Regocnizing Individuals Based on Keystroke Dynamics</center>
             </blockquote>
-            <p>
+            <p class="margin-bottom-0 text-size-16">
               To address these problems, we aimed to build a model as outlined above. The neural network is made up of a normalization layer, a long short-term memory (LSTM) layer, a hidden dense layer with 100 nodes, and a binary classification layer. As we will discuss later, we are able to swap out the output layer for different users. <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/"><font color="blue">The LSTM layer</font></a> is a gated recurrent unit, which will accommodate inputs of any length to the model. This is done by looping the layer’s output back into the LSTM and updating it for each unit of input. The dense layer will contain high level features or embeddings of a user’s keystroke dynamics. These embeddings are low dimensional vector representations of the inputs which, ideally, place similar inputs close together in the embedding space. We should also note that between each layer is a dropout of 0.3 for increased model generalization during training.
 
               <br><br> Keystrokes are input to the model sequentially as vectors, with each vector containing the dwell time of key n and the flight time between keys n and n+1. Since each input must be a hold time flight time pair, we drop the last keystroke from the input because this key does not have a flight time to a subsequent key.
@@ -108,8 +108,8 @@
       </article>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
+     <!-- FOOTER -->
+     <footer>
       <!-- Contact Us
       <div class="background-primary padding text-center">
         <p class="h1">Contact Us: 0800 787 787</p>                                                                        
@@ -137,10 +137,10 @@
                     Northfield, MN 55057
                   </p>               
                 </div>
-                <div class="float-left">
+                <!-- <div class="float-left">
                   <i class="icon-sli-envelope text-primary icon3x"></i>
-                </div>
-                <div class="margin-left-70 margin-bottom-30">
+                </div> -->
+                <!-- <div class="margin-left-70 margin-bottom-30">
                   <h3 class="margin-bottom-0">E-mail</h3>
                   <p>diiannic@carleton.edu<br>
                      kima3@carleton.edu<br>
@@ -148,7 +148,7 @@
                      murphym2@carleton.edu<br>
                      reidn@carleton.edu
                   </p>              
-                </div>
+                </div> -->
                 <!-- <div class="float-left">
                   <i class="icon-sli-phone text-primary icon3x"></i>
                 </div> -->
@@ -163,6 +163,8 @@
           </div>
         </div>  
       </section>
+
+      
       <hr class="break margin-top-bottom-0" style="border-color: rgba(0, 38, 51, 0.80);">
       
     <!-- Bottom Footer -->
