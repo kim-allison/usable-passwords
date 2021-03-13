@@ -68,18 +68,15 @@
             <hr class="break-small background-primary margin-bottom-30">
             <p class="margin-bottom-0 text-size-16">
               The key objectives we wanted to fulfill when designing a neural network approach to identifying users were:
-
-              <ul>
-                <li>We did not want to train a new model for each user</li>
-                <ul>
-                  <li>This would require storing a unique model for each user, taking up a lot of storage potentially leading to very long run times for each new user account</li>
-                </ul>
-                <li>The model must be stored in a way that makes it challenging, and hopefully near impossible, for attackers and website owners to trace back through the model and determine a user’s biometric data from their stored model</li>
-                <ul>
-                  <li>This would also mean we cannot permanently store the user’s 10 training inputs</li>
-                </ul>
-                <li>The model must consider passwords of different lengths</li>
-              </ul>
+              <br><br>
+              <b>1. We did not want to train a new model for each user</b>. This would require storing a unique model for each user, taking up a lot of storage potentially leading to very long run times for each new user account.
+              <br><br>
+              <b>2. The model must be stored in a way that makes it challenging for attackers to extract 
+              biometric data.</b> This means that we would need to store the data in a way that couldn't be 
+              reverse engineered into keystrokes. Specifically, this would also mean we cannot 
+              permanently store the user’s 10 training inputs.
+              <br><br>
+              <b>3. The model must consider passwords of different lengths.</b> This would be important if the model were deployed outside of a test environment.
             </p>
             <br><br>
             <h2 class="text-size-40 margin-bottom-30">Method</h2>
